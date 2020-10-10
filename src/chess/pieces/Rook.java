@@ -10,11 +10,6 @@ public class Rook extends ChessPiece {
 	public Rook(Board board, Color color) {
 		super(board, color);
 	}
-
-	@Override
-	public String toString() {
-		return "R";
-	}
 	
 	@Override
 	public boolean[][] possibleMoves() {
@@ -22,7 +17,7 @@ public class Rook extends ChessPiece {
 		
 		Position p = new Position(0, 0);
 		
-		//above
+		// above
 		p.setValues(position.getRow() - 1, position.getColumn());
 		
 		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -35,7 +30,7 @@ public class Rook extends ChessPiece {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		//left
+		// left
 		p.setValues(position.getRow(), position.getColumn() - 1);
 		
 		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -48,7 +43,7 @@ public class Rook extends ChessPiece {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		//right
+		// right
 		p.setValues(position.getRow(), position.getColumn() + 1);
 		
 		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -61,7 +56,7 @@ public class Rook extends ChessPiece {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		
-		//below
+		// below
 		p.setValues(position.getRow() + 1, position.getColumn());
 		
 		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -75,5 +70,10 @@ public class Rook extends ChessPiece {
 		}
 
 		return mat;
+	}
+	
+	@Override
+	public String toString() {
+		return "R";
 	}
 }
